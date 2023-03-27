@@ -26,7 +26,7 @@
                 </div>
                 <div class=" mt-4 flex items-center justify-center">
                     <p class="text-gray-100">Don't have an account? </p>
-                    <h3 class="text-gray-100 font-bold"> Sign up</h3>
+                    <a href="{{ route('register') }}"  class="text-gray-100 font-bold" >Sign up</a>
                 </div>
             </div>
             <div class="sm:block hidden w-1/2">

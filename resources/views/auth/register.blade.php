@@ -14,8 +14,10 @@
                 <h1 class="font-bold text-2xl text-gray-100">Sign up</h1>
                 <p class="text-sm mt-2 text-gray-300">If you don't have an account, just create a new one</p>
                 <form action="" class="flex flex-col gap-4">
-                    <input type="email" class="p-2 mt-8 rounded-lg border bg-gray-200" name="email" placeholder="Email">
+                    <input type="text" class="p-2 mt-8 rounded-lg border bg-gray-200" name="name" placeholder="Name">
+                    <input type="email" class="p-2  rounded-lg border bg-gray-200" name="email" placeholder="Email">
                     <input type="password" class="p-2 rounded-lg border bg-gray-200" name="password" placeholder="Password">
+                    
                     {{-- <p class=" text-gray-100 text-right">Forget Password</p> --}}
                     <button class="bg-[#ACA8A7] text-[#100F12] mt-3 font-bold rounded-lg p-2">Sign up</button>
                 </form>
@@ -26,7 +28,8 @@
                 </div>
                 <div class=" mt-4 flex items-center justify-center">
                     <p class="text-gray-100">Already have an account? </p>
-                    <h3 class="text-gray-100 font-bold"> Login</h3>
+                    <a href="{{ route('login') }}"  class="text-gray-100 font-bold" >Login</a>
+                    {{-- <button   class="text-gray-100 font-bold"> Login</button> --}}
                 </div>
             </div>
             <div class="sm:block hidden w-1/2">

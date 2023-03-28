@@ -13,11 +13,20 @@
             <div class="sm:w-1/2 px-8 self-center">
                 <h1 class="font-bold text-2xl text-gray-100">Login</h1>
                 <p class="text-sm mt-2 text-gray-300">If you have an account, login to continue</p>
-                <form action="{{ route('login') }}" class="flex flex-col gap-4">
-                    <input type="email" class="p-2 mt-8 rounded-lg border bg-gray-200" name="email" placeholder="Email">
-                    <input type="password" class="p-2 rounded-lg border bg-gray-200" name="password" placeholder="Password">
+                <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4">
+                    @csrf
+                    <input type="email" id="email" class="p-2 mt-8 rounded-lg border bg-gray-200"  placeholder="Enter email..." name="email" >
+                    @error('email')
+                <span class="text-red-500">{{ $message }}</span>
+            @enderror
+            <input type="password" id="password" class="p-2  rounded-lg border bg-gray-200" placeholder="Password..." name="password" >
+            @error('password')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
                     <p class=" text-gray-100 text-right">Forget Password</p>
-                    <button class="bg-[#ACA8A7] text-[#100F12] font-bold rounded-lg p-2">Login</button>
+                    <button type="submit" class="bg-[#ACA8A7] text-[#100F12] font-bold rounded-lg p-2">Login</button>
+
+                    {{-- <button class="bg-[#ACA8A7] text-[#100F12] font-bold rounded-lg p-2">Login</button> --}}
                 </form>
                 <div class="mt-10 grid grid-cols-3 items-center text-gray-400">
                     <hr class="border-gray-400">

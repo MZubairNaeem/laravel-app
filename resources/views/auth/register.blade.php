@@ -13,24 +13,40 @@
             <div class="sm:w-1/2 px-8 self-center">
                 <h1 class="font-bold text-2xl text-gray-100">Sign up</h1>
                 <p class="text-sm mt-2 text-gray-300">If you don't have an account, just create a new one</p>
-                <form method="POST" action="{{route('register')}}" class="flex flex-col gap-4">
+                <form method="POST" action="{{route("register")}}" class="flex flex-col gap-2">
                     @csrf
-                    <input type="text" id="name" class="p-2 mt-8 rounded-lg border bg-gray-200" name="name" placeholder="Name">
+                    
+                    <div class="mt-3">
+                       
+                        <input type="name" id="name" class="p-2 w-full rounded-lg border bg-gray-200" placeholder="Enter name..." name="name" >
+                    </div>
                     @error('name')
-                <span class="text-red-500">{{ $message }}</span>
-            @enderror
-                    <input type="email" id="email" class="p-2  rounded-lg border bg-gray-200" name="email" placeholder="Email">
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
+                    <div class="mt-3">
+                        
+                        <input type="email" id="email" class="p-2 w-full rounded-lg border bg-gray-200"  placeholder="Enter email..." name="email" >
+                    </div>
                     @error('email')
                     <span class="text-red-500">{{ $message }}</span>
         @enderror
-                    <input type="password" class="p-2 rounded-lg border bg-gray-200" name="password" placeholder="Password">
-                    @error('password')
-                <span class="text-red-500">{{ $message }}</span>
-            @enderror 
-                    <input type="password" id="password" class="p-2 rounded-lg border bg-gray-200" name="password" placeholder="Confirm Password">
                     
-                    {{-- <p class=" text-gray-100 text-right">Forget Password</p> --}}
-                    <button button type="submit" class="bg-[#ACA8A7] text-[#100F12] mt-3 font-bold rounded-lg p-2">Sign up</button>
+                    <div class="mt-3">
+                       
+                        <input type="password" id="password" class="p-2 w-full rounded-lg border bg-gray-200"  placeholder="Password..." name="password">
+                    </div>
+                    @error('password')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror 
+                    <div class="mt-3">
+                        
+                        <input type="password" id="password" class="p-2 w-full rounded-lg border bg-gray-200"  placeholder="Confirm Password..." name="password_confirmation" >
+                    </div> 
+                    
+                    <div class="mt-5">
+                        <button button type="submit" class="bg-[#ACA8A7] text-[#100F12] mt-3 w-full font-bold rounded-lg p-2">Sign up</button>
+                    </div>
+                    
                 </form>
                 <div class="mt-10 grid grid-cols-3 items-center text-gray-400">
                     <hr class="border-gray-400">

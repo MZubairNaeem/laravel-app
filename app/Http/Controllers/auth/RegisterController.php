@@ -17,7 +17,7 @@ class RegisterController extends Controller
         $this->validate($request,[
             'name'=>'required|max:255',
             'email'=>'required|email|max:255',
-            'password'=>'required|confirmed'
+            'password'=>'required'
         ]);
         $user = User::create([
             'name'=>$request->name,
@@ -25,6 +25,6 @@ class RegisterController extends Controller
             'password'=>bcrypt($request->password)
         ]);
         auth()->login($user);
-        return redirect()->route('login');
+        return redirect()->route('dashboard');
     }
 }

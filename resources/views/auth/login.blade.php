@@ -13,7 +13,7 @@
             <div class="sm:w-1/2 px-8 self-center">
                 <h1 class="font-bold text-2xl text-gray-100">Login</h1>
                 <p class="text-sm mt-2 text-gray-300">If you have an account, login to continue</p>
-                <form action="" class="flex flex-col gap-4">
+                <form action="{{ route('login') }}" class="flex flex-col gap-4">
                     <input type="email" class="p-2 mt-8 rounded-lg border bg-gray-200" name="email" placeholder="Email">
                     <input type="password" class="p-2 rounded-lg border bg-gray-200" name="password" placeholder="Password">
                     <p class=" text-gray-100 text-right">Forget Password</p>

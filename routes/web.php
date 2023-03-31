@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\TodolistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+
+
+Route::get('/home',[TodolistController::class,'index'])->name('home');
+Route::post('/todoStore',[TodolistController::class,'store'])->name('store');
+Route::delete('/todo/{todolist:id}',[TodolistController::class,'destory'])->name('destory');
+

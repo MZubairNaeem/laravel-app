@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('todo_tasks', function (Blueprint $table) {
+        Schema::create('todolists', function (Blueprint $table) {
             $table->id();
+            $table->string('content');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('todo_tasks');
+        Schema::dropIfExists('todolists');
     }
 };

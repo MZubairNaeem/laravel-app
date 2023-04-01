@@ -54,20 +54,28 @@
         @if(count($todolists))
         @foreach ($todolists as $todolist)
             <li>
-              <form action="{{route('destory',$todolist->id)}}" method="POST">
+              <div class="flex mt-4">
+              
+              <form class="" action="{{route('destory',$todolist->id)}}" method="POST">
                 
-                <div class="flex justify-between mt-4">
-                  <div>
-                    {{ $todolist->content }}
-                  </div>
-                  <div>
-                    @csrf
-                    @method('delete') 
-                    <button type="submit" class="bg-gray-800 text-white rounded-lg px-2 py-1">Delete</button>
-                  </div>
-                </div>
-               
+                {{ $todolist->content }}
+                
+                
+                @csrf
+                @method('delete') 
+                
+                <button type="submit" class="bg-gray-800 text-white rounded-lg px-2 py-1">Delete</button>
+                
               </form>
+                
+                
+                <form method="POST" class="bg-gray-800 ml-2 px-2 py-1 rounded-md" action="{{ route('update',$todolist->id)}}">
+                  @csrf
+                  @method('PUT')
+                  <button class="text-white " type="submit">Completed?</button>
+                  <input type="checkbox" name="completed" value="1" {{ $todolist->completed ? 'checked' : '' }}>
+                </form>
+              </div> 
             </li>
         @endforeach
         @endif

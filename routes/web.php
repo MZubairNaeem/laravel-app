@@ -31,4 +31,5 @@ Route::get('/', function () {
 Route::get('/home',[TodolistController::class,'index'])->name('home');
 Route::post('/todoStore',[TodolistController::class,'store'])->name('store');
 Route::delete('/todo/{todolist:id}',[TodolistController::class,'destory'])->name('destory');
+Route::patch('/todo/{todolist:id}',[TodolistController::class,'update'])->name('update');
 

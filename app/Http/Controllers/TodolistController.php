@@ -38,4 +38,12 @@ class TodolistController extends Controller
         $todolist->delete();
         return redirect()->back();
     }
+
+    public function update(Todolist $todolist)
+    {
+        $todolist->update([
+            'completed' => true
+        ]);
+        return redirect('/home');
+    }
 }
